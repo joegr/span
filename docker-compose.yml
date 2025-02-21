@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  app:
+    platform: linux/arm64
+    build:
+      context: .
+      target: app
+    ports:
+      - "5000:5000"  # Flask
+      - "8899:8899"  # Solana RPC
+      - "8900:8900"  # Solana PubSub
+    volumes:
+      - .:/app
+      - solana-config:/root/.config/solana
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=development
+      - PYTHONUNBUFFERED=1
+      - SOLANA_KEYPAIR_PATH=/root/.config/solana/id.json
+      - SOLANA_RPC_URL=http://localhost:8899
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  solana-config: 
