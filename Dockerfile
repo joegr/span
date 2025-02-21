@@ -59,7 +59,7 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | \
     && . "$CARGO_HOME/env" \
     # Install Solana CLI
     && mkdir -p /root/.local/share/solana/install/active_release \
-    && curl -sSfL "https://github.com/solana-labs/solana/releases/download/v${SOLANA_VERSION}/solana-release-aarch64-apple-darwin.tar.bz2" | \
+    && curl -sSfL "https://github.com/solana-labs/solana/releases/download/v${SOLANA_VERSION}/solana-release-aarch64-unknown-linux-gnu.tar.bz2" | \
        tar -xj -C /root/.local/share/solana/install/active_release --strip-components=1 \
     && chmod +x /root/.local/share/solana/install/active_release/bin/* \
     # Install Anchor

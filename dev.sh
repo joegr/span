@@ -26,6 +26,12 @@ start() {
     docker-compose up --build
 }
 
+# Function to rebuild the container
+rebuild() {
+    echo -e "${BLUE}Rebuilding container...${NC}"
+    docker-compose build --no-cache
+}
+
 # Function to stop the development environment
 stop() {
     echo -e "${BLUE}Stopping development environment...${NC}"
@@ -35,7 +41,7 @@ stop() {
 # Function to run tests
 test() {
     echo -e "${BLUE}Running tests...${NC}"
-    docker-compose exec nlp-chain ./test.sh
+    docker-compose exec app pytest
 }
 
 # Function to show logs
@@ -47,7 +53,7 @@ logs() {
 # Function to open a shell in the container
 shell() {
     echo -e "${BLUE}Opening shell in container...${NC}"
-    docker-compose exec nlp-chain bash
+    docker-compose exec app bash
 }
 
 # Check if Docker is installed
@@ -61,6 +67,9 @@ case "$1" in
     "stop")
         stop
         ;;
+    "rebuild")
+        rebuild
+        ;;
     "test")
         test
         ;;
@@ -71,13 +80,14 @@ case "$1" in
         shell
         ;;
     *)
-        echo -e "Usage: $0 {start|stop|test|logs|shell}"
+        echo -e "Usage: $0 {start|stop|rebuild|test|logs|shell}"
         echo -e "\nCommands:"
-        echo -e "  ${BOLD}start${NC}  Start the development environment"
-        echo -e "  ${BOLD}stop${NC}   Stop the development environment"
-        echo -e "  ${BOLD}test${NC}   Run tests"
-        echo -e "  ${BOLD}logs${NC}   Show container logs"
-        echo -e "  ${BOLD}shell${NC}  Open a shell in the container"
+        echo -e "  ${BOLD}start${NC}   Start the development environment"
+        echo -e "  ${BOLD}stop${NC}    Stop the development environment"
+        echo -e "  ${BOLD}rebuild${NC} Rebuild the container from scratch"
+        echo -e "  ${BOLD}test${NC}    Run tests"
+        echo -e "  ${BOLD}logs${NC}    Show container logs"
+        echo -e "  ${BOLD}shell${NC}   Open a shell in the container"
         exit 1
         ;;
 esac 
