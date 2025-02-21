@@ -1,0 +1,95 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.env
+venv/
+.venv/
+ENV/
+
+# Rust
+target/
+**/*.rs.bk
+Cargo.lock
+debug/
+.cargo-ok
+
+# Solana
+.anchor
+.DS_Store
+test-ledger/
+test-keypair.json
+
+# Node (for Anchor)
+node_modules/
+.npm
+.node_repl_history
+npm-debug.log*
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+.project
+.classpath
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project specific
+*.log
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+
+# Docker
+.docker/
+*.env
+.env.*
+!.env.example
+
+# Blockchain
+wallet-keypair.json
+validator-keypair.json
+*.keypair
+*.wallet
+*.pem
+
+# Cache and temp files
+.cache/
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*~ 

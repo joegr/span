@@ -1,0 +1,11 @@
+{
+  "json_rpc_url": "http://localhost:8899",
+  "websocket_url": "ws://localhost:8900",
+  "keypair_path": "/root/.config/solana/id.json",
+  "commitment": "confirmed",
+  "validator_exit_after_slots": null,
+  "validator_wait_for_supermajority": null,
+  "validator_identity_keypair": "/root/.config/solana/validator-keypair.json",
+  "validator_vote_account_keypair": "/root/.config/solana/vote-account-keypair.json",
+  "validator_stake_account_keypair": "/root/.config/solana/stake-account-keypair.json"
+} 
